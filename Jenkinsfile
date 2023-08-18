@@ -15,7 +15,7 @@ pipeline {
          } 
       stage('Docker build and push') {
             steps {
-              docker.withRegistry([CredentialsId: "docker-hub",url:""]){
+              docker.withRegistry([credentialsId: "docker-hub",url: ""]){
                 sh "printenv"
                 sh 'docker build -t svnemma/numeric-app:""$GIT_COMMIT"" .'
                 sh 'docker push svnemma/numeric-app:""$GIT_COMMIT""'
